@@ -1,0 +1,6 @@
+relay.bin: 103.2 s emulated, 6123 frames over 6191 vblanks -> 59.34 fps; vblank period 167680 T
+  frames by vblanks taken: {1: 6111, 2: 3, 3: 2, 8: 1, 10: 6}  late frames: 12 [(1.97, 10), (17.15, 3), (20.52, 10), (35.65, 2), (39.0, 10), (49.13, 2), (52.48, 10), (66.78, 2), (75.48, 8), (77.58, 10), (92.77, 3), (96.13, 10)]
+  frames per second: [61, 58, 53, 60, 60, 60, 60, 60, 60, 59, 60, 60, 60, 60, 60, 60, 60, 58, 60, 60, 52, 60, 60, 59, 61, 59, 61, 59, 61, 60, 60, 60, 59, 60, 60, 59, 60, 60, 60, 52, 60, 60, 60, 59, 61, 60, 59, 60, 60, 59, 60, 60, 52, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 60, 59, 60, 60, 60, 60, 60, 60, 60, 60, 54, 60, 51, 60, 60, 60, 60, 60, 60, 60, 59, 60, 60, 60, 60, 60, 60, 58, 60, 60, 60, 52, 60, 60, 60, 60, 60, 60]
+  vblank length 18300 T; frames whose logic ran into vblank: 0 (worst left 18265 T of vblank for sprites/HUD)
+  logic time per frame vs the 149380 T between vblanks: median 0.44 p90 0.63 p99 0.84 max 11.10; frames over budget 18
+  over-budget frames by how far over: <5% 4, 5-15% 2, 15-50% 0, >50% 12

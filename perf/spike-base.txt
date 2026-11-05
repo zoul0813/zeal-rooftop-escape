@@ -1,0 +1,87 @@
+relay.bin: 2130 frames, 201 over budget (9.4%), step 1500 T, budget 112 samples
+
+all frames (2130 frames, avg 70% of budget)
+   14.3%    10.1% of budget/frame  _entities_sync [entity]
+   13.6%     9.5% of budget/frame  _gfx_sprite_render_array [render_array]
+    8.0%     5.6% of budget/frame  _actors_update [actors]
+    5.4%     3.8% of budget/frame  _probe_row [body]
+    5.2%     3.7% of budget/frame  _tileflags_at_tile [tileflags]
+    5.1%     3.6% of budget/frame  _controller_read_port [controller]
+    3.8%     2.7% of budget/frame  _decide [autopilot]
+    3.4%     2.4% of budget/frame  __divulong [_divulong]
+    3.4%     2.4% of budget/frame  _tileflags_at [tileflags]
+    3.2%     2.2% of budget/frame  _probe_column [body]
+    3.1%     2.1% of budget/frame  _camera_follow [camera_follow]
+    2.2%     1.6% of budget/frame  _hero_update [hero]
+    2.2%     1.5% of budget/frame  _anim_tick [anim]
+    2.1%     1.5% of budget/frame  _entities_next [entity]
+    2.0%     1.4% of budget/frame  _body_overlap [body]
+    1.8%     1.2% of budget/frame  _move_y [body]
+    1.5%     1.0% of budget/frame  _touch [body]
+    1.3%     0.9% of budget/frame  _stream_update [stream]
+    1.3%     0.9% of budget/frame  _body_platformer [body]
+    1.3%     0.9% of budget/frame  _move_x [body]
+    1.2%     0.8% of budget/frame  __divuint [lib]
+    1.2%     0.8% of budget/frame  _write_col [stream]
+    1.1%     0.8% of budget/frame  _camera_scroll [camera]
+    0.9%     0.6% of budget/frame  _solid_below [autopilot]
+    0.9%     0.6% of budget/frame  _gfx_tilemap_place [place]
+
+slow frames (201 frames, avg 153% of budget)
+   21.7%    33.3% of budget/frame  _tileflags_at_tile [tileflags]
+   14.3%    21.9% of budget/frame  _tileflags_at [tileflags]
+    8.5%    13.0% of budget/frame  _decide [autopilot]
+    7.3%    11.2% of budget/frame  _entities_sync [entity]
+    6.3%     9.7% of budget/frame  _gfx_sprite_render_array [render_array]
+    4.3%     6.6% of budget/frame  _actors_update [actors]
+    4.3%     6.5% of budget/frame  _solid_below [autopilot]
+    3.5%     5.3% of budget/frame  _probe_row [body]
+    2.4%     3.7% of budget/frame  _decompress_rle [rle]
+    2.4%     3.7% of budget/frame  _controller_read_port [controller]
+    1.7%     2.6% of budget/frame  __divulong [_divulong]
+    1.6%     2.5% of budget/frame  _probe_column [body]
+    1.5%     2.4% of budget/frame  _camera_follow [camera_follow]
+    1.3%     2.1% of budget/frame  _hero_update [hero]
+    1.2%     1.9% of budget/frame  _body_overlap [body]
+    1.1%     1.7% of budget/frame  _zmt_pattern_rom_load [pattern_rom_load]
+    1.1%     1.7% of budget/frame  _anim_tick [anim]
+    1.0%     1.6% of budget/frame  _entities_next [entity]
+    1.0%     1.5% of budget/frame  __divuint [lib]
+    1.0%     1.5% of budget/frame  _move_y [body]
+    0.8%     1.3% of budget/frame  _body_platformer [body]
+    0.8%     1.2% of budget/frame  _touch [body]
+    0.7%     1.1% of budget/frame  _zmt_pattern_reset [main]
+    0.7%     1.1% of budget/frame  _move_x [body]
+    0.6%     1.0% of budget/frame  _stream_update [stream]
+
+slow frames one by one (time s, load, top functions):
+    2.73 s 1008%  _decompress_rle 419, _zmt_pattern_rom_load 178, _zmt_pattern_reset 113, _zmt_step_init 88
+    3.47 s  148%  _tileflags_at_tile 30, _tileflags_at 27, __divulong 14, _entities_sync 14
+    4.03 s  147%  _tileflags_at_tile 29, _decide 18, _entities_sync 17, _tileflags_at 15
+    4.07 s  140%  _tileflags_at_tile 29, _tileflags_at 23, _decide 17, _entities_sync 17
+    4.10 s  141%  _tileflags_at_tile 32, _tileflags_at 23, _entities_sync 16, _gfx_sprite_render_array 10
+    4.13 s  133%  _tileflags_at 23, _tileflags_at_tile 20, _decide 17, _entities_sync 17
+    4.17 s  136%  _tileflags_at_tile 40, _entities_sync 16, _decide 15, _tileflags_at 15
+    4.20 s  132%  _tileflags_at_tile 27, _tileflags_at 24, _entities_sync 17, _solid_below 13
+    4.23 s  144%  _tileflags_at_tile 27, _solid_below 17, _decide 16, _entities_sync 16
+    4.27 s  133%  _tileflags_at_tile 31, _tileflags_at 20, _entities_sync 17, _decide 16
+    4.30 s  132%  _tileflags_at_tile 32, _tileflags_at 23, _decide 17, _entities_sync 14
+    4.33 s  132%  _tileflags_at_tile 38, _tileflags_at 22, _entities_sync 14, _gfx_sprite_render_array 11
+    4.37 s  127%  _tileflags_at_tile 31, _tileflags_at 24, _entities_sync 14, _gfx_sprite_render_array 11
+    4.94 s  142%  _tileflags_at_tile 34, _decide 17, _tileflags_at 17, __divulong 14
+    5.50 s  157%  _tileflags_at_tile 45, _tileflags_at 37, _entities_sync 14, _gfx_sprite_render_array 11
+    5.54 s  157%  _tileflags_at_tile 45, _tileflags_at 29, _entities_sync 15, _solid_below 12
+    5.57 s  157%  _tileflags_at_tile 50, _tileflags_at 26, _decide 15, _entities_sync 14
+    5.60 s  159%  _tileflags_at_tile 50, _tileflags_at 30, _entities_sync 15, _gfx_sprite_render_array 11
+    5.64 s  161%  _tileflags_at_tile 41, _tileflags_at 34, _entities_sync 14, _solid_below 13
+    5.67 s  155%  _tileflags_at_tile 44, _decide 25, _tileflags_at 21, _entities_sync 15
+    5.71 s  154%  _tileflags_at_tile 32, _tileflags_at 26, _decide 24, _solid_below 15
+    5.74 s  149%  _tileflags_at_tile 33, _tileflags_at 31, _decide 19, _entities_sync 15
+    6.27 s  171%  _tileflags_at_tile 50, _tileflags_at 31, _entities_sync 16, __divulong 14
+    6.31 s  160%  _tileflags_at_tile 31, _tileflags_at 28, _decide 26, _entities_sync 16
+    6.34 s  161%  _tileflags_at_tile 51, _decide 26, _tileflags_at 17, _entities_sync 17
+    6.37 s  166%  _tileflags_at_tile 39, _tileflags_at 31, _solid_below 17, _entities_sync 16
+    6.41 s  153%  _tileflags_at_tile 52, _decide 25, _tileflags_at 17, _entities_sync 16
+    6.44 s  156%  _tileflags_at_tile 56, _tileflags_at 30, _entities_sync 16, _actors_update 12
+    6.47 s  154%  _tileflags_at_tile 35, _tileflags_at 33, _decide 26, _entities_sync 16
+    6.51 s  153%  _tileflags_at 35, _tileflags_at_tile 33, _solid_below 19, _entities_sync 16

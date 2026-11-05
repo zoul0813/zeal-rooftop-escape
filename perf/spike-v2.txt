@@ -1,0 +1,80 @@
+relay.bin: 3487 frames, 23 over budget (0.7%), step 1500 T, budget 112 samples
+
+all frames (3487 frames, avg 63% of budget)
+   15.2%     9.6% of budget/frame  _entities_sync [entity]
+   15.2%     9.6% of budget/frame  _gfx_sprite_render_array [render_array]
+    8.4%     5.3% of budget/frame  _actors_update [actors]
+    6.5%     4.1% of budget/frame  _probe_row [body]
+    5.7%     3.6% of budget/frame  _controller_read_port [controller]
+    3.6%     2.2% of budget/frame  _probe_column [body]
+    3.5%     2.2% of budget/frame  _camera_follow [camera_follow]
+    3.4%     2.1% of budget/frame  __divulong [_divulong]
+    2.4%     1.5% of budget/frame  _hero_update [hero]
+    2.3%     1.5% of budget/frame  _entities_next [entity]
+    2.3%     1.4% of budget/frame  _decide [autopilot]
+    2.3%     1.4% of budget/frame  _anim_tick [anim]
+    2.1%     1.3% of budget/frame  _tileflags_at_tile [tileflags]
+    2.1%     1.3% of budget/frame  _move_y [body]
+    1.9%     1.2% of budget/frame  _body_overlap [body]
+    1.5%     0.9% of budget/frame  _stream_update [stream]
+    1.4%     0.9% of budget/frame  _move_x [body]
+    1.4%     0.9% of budget/frame  _body_platformer [body]
+    1.3%     0.8% of budget/frame  _touch [body]
+    1.3%     0.8% of budget/frame  __divuint [lib]
+    1.3%     0.8% of budget/frame  _camera_scroll [camera]
+    1.3%     0.8% of budget/frame  _write_col [stream]
+    0.9%     0.6% of budget/frame  _gfx_tilemap_place [place]
+    0.7%     0.4% of budget/frame  _decompress_rle [rle]
+    0.6%     0.4% of budget/frame  _camera_set [camera]
+
+slow frames (23 frames, avg 314% of budget)
+   20.9%    65.6% of budget/frame  _decompress_rle [rle]
+   10.1%    31.6% of budget/frame  _zmt_pattern_rom_load [pattern_rom_load]
+    6.7%    20.9% of budget/frame  _zmt_pattern_reset [main]
+    5.9%    18.6% of budget/frame  _entities_sync [entity]
+    5.7%    17.9% of budget/frame  _zmt_step_init [main]
+    4.8%    15.2% of budget/frame  _gfx_sprite_render_array [render_array]
+    4.1%    12.8% of budget/frame  _zmt_voice_init [main]
+    3.8%    12.0% of budget/frame  __divulong [_divulong]
+    3.3%    10.5% of budget/frame  _actors_update [actors]
+    2.8%     8.9% of budget/frame  __divuint [lib]
+    2.4%     7.6% of budget/frame  _tileflags_at_tile [tileflags]
+    2.3%     7.2% of budget/frame  _probe_row [body]
+    2.3%     7.2% of budget/frame  _mem_cpy [mem_cpy]
+    1.8%     5.7% of budget/frame  _controller_read_port [controller]
+    1.6%     5.1% of budget/frame  _decide [autopilot]
+    1.4%     4.6% of budget/frame  _text_show [hud]
+    1.3%     4.2% of budget/frame  _probe_column [body]
+    1.3%     4.0% of budget/frame  _write_row [stream]
+    1.1%     3.6% of budget/frame  _camera_follow [camera_follow]
+    1.0%     3.1% of budget/frame  _zmt_arrangement_rom_load [arrangement_rom_load]
+    0.9%     3.0% of budget/frame  _entities_next [entity]
+    0.9%     2.8% of budget/frame  _anim_tick [anim]
+    0.8%     2.6% of budget/frame  _write_col [stream]
+    0.8%     2.6% of budget/frame  _hero_update [hero]
+    0.8%     2.4% of budget/frame  _body_overlap [body]
+
+slow frames one by one (time s, load, top functions):
+    2.73 s 1007%  _decompress_rle 419, _zmt_pattern_rom_load 177, _zmt_pattern_reset 113, _zmt_step_init 88
+    6.94 s  108%  _entities_sync 17, __divulong 13, _tileflags_at_tile 12, _gfx_sprite_render_array 11
+    7.51 s  184%  _entities_sync 30, _gfx_sprite_render_array 22, __divulong 21, _actors_update 17
+   17.98 s  217%  _zmt_pattern_rom_load 36, _zmt_step_init 35, _zmt_pattern_reset 29, _zmt_voice_init 26
+   21.36 s  968%  _decompress_rle 414, _zmt_pattern_rom_load 177, _zmt_pattern_reset 113, _zmt_step_init 88
+   23.00 s  181%  _entities_sync 34, __divulong 27, _gfx_sprite_render_array 22, _actors_update 20
+   23.58 s  180%  _entities_sync 32, _gfx_sprite_render_array 21, _actors_update 19, _tileflags_at_tile 14
+   29.54 s  113%  _entities_sync 21, __divulong 13, _gfx_sprite_render_array 11, _actors_update 10
+   29.96 s  176%  _entities_sync 38, _actors_update 22, _gfx_sprite_render_array 21, _probe_row 10
+   30.15 s  193%  _entities_sync 35, _actors_update 25, _gfx_sprite_render_array 21, __divulong 14
+   32.47 s  184%  _entities_sync 30, __divulong 28, _gfx_sprite_render_array 22, _actors_update 14
+   34.76 s  178%  __divulong 29, _entities_sync 28, _gfx_sprite_render_array 21, _actors_update 14
+   36.54 s  251%  _zmt_step_init 35, _zmt_pattern_rom_load 35, _zmt_pattern_reset 28, _zmt_voice_init 27
+   39.90 s  983%  _decompress_rle 432, _zmt_pattern_rom_load 178, _zmt_pattern_reset 113, _zmt_step_init 89
+   40.64 s  179%  _entities_sync 29, __divulong 26, _gfx_sprite_render_array 22, _actors_update 15
+   44.63 s  109%  __divulong 14, _entities_sync 12, _gfx_sprite_render_array 11, _tileflags_at_tile 11
+   48.69 s  109%  _entities_sync 17, __divulong 14, _gfx_sprite_render_array 11, _actors_update 10
+   49.34 s  174%  __divulong 28, _gfx_sprite_render_array 22, _entities_sync 22, _actors_update 17
+   50.09 s  209%  _zmt_step_init 35, _zmt_pattern_rom_load 33, _zmt_pattern_reset 29, _zmt_voice_init 25
+   53.47 s  974%  _decompress_rle 422, _zmt_pattern_rom_load 177, _zmt_pattern_reset 113, _zmt_step_init 89
+   54.15 s  182%  _entities_sync 33, __divulong 29, _gfx_sprite_render_array 22, _actors_update 19
+   54.74 s  181%  _entities_sync 34, _gfx_sprite_render_array 22, _tileflags_at_tile 19, _actors_update 18
+   58.83 s  177%  __divulong 26, _gfx_sprite_render_array 22, _entities_sync 17, _write_col 13
