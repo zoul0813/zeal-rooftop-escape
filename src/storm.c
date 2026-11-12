@@ -4,6 +4,7 @@
  * From leg 3 on, lightning lights the sky now and then.
  */
 #include "game.h"
+#include "sprite_groups.h"
 
 #define STORM_Y0  16          // sprite y offset (sprites are drawn 16 px up and left)
 static gfx_sprite *cloud[STORM_ROWS];
@@ -22,6 +23,8 @@ void storm_init(void) {
     uint8_t i;
     for (i = 0; i < STORM_ROWS; i++) {
         cloud[i] = add();
+    }
+    for (i = 0; i < STORM_ROWS; i++) {
         edge[i] = add();
     }
 }
@@ -46,6 +49,8 @@ void storm_show(uint8_t on) {
         edge[i]->y = y;
     }
     place_x();
+    rooftop_sprites_dirty(SPR_GROUP_CLOUD);
+    rooftop_sprites_dirty(SPR_GROUP_EDGE);
 }
 
 void storm_update(void) {
@@ -55,6 +60,7 @@ void storm_update(void) {
     if (hero && !hero->entity.physics.visual.hidden && PHYSICS_FP_INT(hero->entity.physics.body.x) - cam.x < 64) want = 4;
     if (lunge != want) {
         lunge += lunge < want ? 1 : -1;
+        rooftop_sprites_dirty(SPR_GROUP_CLOUD);
         moved = 1;
     }
     if ((++phase & 7) == 0) {
@@ -65,7 +71,10 @@ void storm_update(void) {
         }
         moved = 1;
     }
-    if (moved) place_x();
+    if (moved) {
+        place_x();
+        rooftop_sprites_dirty(SPR_GROUP_EDGE);
+    }
     if (game.leg >= 2 && game.state == GS_PLAY && --bolt_wait == 0) {
         bolt_wait = 150 + (rand8() & 127) + (game.leg < 6 ? 120 : 0);
         world_flash();

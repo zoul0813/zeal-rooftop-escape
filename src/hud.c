@@ -6,6 +6,7 @@
 #include <zgdk/ascii.h>
 #include <core.h>
 #include <zgdk/hud/sprite.h>
+#include "sprite_groups.h"
 
 #define H_LIVES   0   // icon + digit (+ one spare)
 #define H_PIPS    3   // 4 meter pips
@@ -54,6 +55,9 @@ void hud_show(uint8_t on) {
     last_score = 0xFFFF;
     last_lives = 0xFF;
     last_meter = 0xFF;
+    rooftop_sprites_dirty(SPR_GROUP_LIVES);
+    rooftop_sprites_dirty(SPR_GROUP_METER);
+    rooftop_sprites_dirty(SPR_GROUP_SCORE);
 }
 
 void hud_draw(void) {
@@ -62,9 +66,11 @@ void hud_draw(void) {
     if (game.lives != last_lives) {
         last_lives = game.lives;
         hud[H_LIVES + 1].tile = ascii_to('0' + game.lives);
+        rooftop_sprites_dirty(SPR_GROUP_LIVES);
     }
     if (game.meter != last_meter) {
         last_meter = game.meter;
+        rooftop_sprites_dirty(SPR_GROUP_METER);
         for (i = 0; i < METER_MAX; i++) {
             uint8_t t = SPR_PIP_OFF;
             if (i < game.meter) t = game.meter == METER_MAX ? SPR_PIP_MAX : SPR_PIP_ON;
@@ -74,6 +80,7 @@ void hud_draw(void) {
     if (game.score != last_score) {
         uint16_t v = game.score;
         last_score = v;
+        rooftop_sprites_dirty(SPR_GROUP_SCORE);
         for (i = 5; i > 0; i--) {
             hud[H_SCORE + i - 1].tile = ascii_to('0' + v % 10);
             v /= 10;
@@ -85,14 +92,19 @@ void text_show(uint8_t line, const char *str, uint8_t y) {
     hud_sprite_text_t row = { TEXT(line, 0), TEXT_LEN, 12 };
     // Preserve this font's visual centering (12 px advance, 2 px correction).
     hud_sprite_put_s_centered(&row, str, 158, y);
+    rooftop_sprites_dirty(SPR_GROUP_TEXT0 + line);
 }
 
 void text_hide(uint8_t line) {
     hud_sprite_hide(TEXT(line, 0), TEXT_LEN);
+    rooftop_sprites_dirty(SPR_GROUP_TEXT0 + line);
 }
 
 void text_hide_all(void) {
     hud_sprite_hide(TEXT(0, 0), TEXT_LINES * TEXT_LEN);
+    rooftop_sprites_dirty(SPR_GROUP_TEXT0);
+    rooftop_sprites_dirty(SPR_GROUP_TEXT1);
+    rooftop_sprites_dirty(SPR_GROUP_TEXT2);
 }
 
 void score_add(uint16_t points) {

@@ -6,6 +6,19 @@ Sprite and tilemap text use that same map.
 Sprite banners require ZGDK’s `hud/sprite.h` helpers and matching library.
 The game owns sprite allocation, layout, dirty flags and vblank uploads.
 
+`sprite_groups.c` uploads changed ranges through the SDK's
+`gfx_sprite_render_array()`. Slot priority stays HUD/banners, then storm, then
+actors. The ranges are lives (0–2), meter (3–6), score (7–11), three banner rows
+(12–31, 32–51, 52–71), storm clouds (72–86), storm edge (87–101), and actors
+(102–121). Clouds and edge are contiguous rather than interleaved.
+
+HUD, text and storm owners mark their groups dirty when they write sprite data.
+After entity sync, actor records are compared with a 160-byte snapshot outside
+vblank. Only dirty groups are uploaded; hidden/despawned records are uploaded
+too, to erase their previous hardware state. Failed uploads remain dirty for
+retry. This game uses the SDK CPU range uploader rather than the SDK's whole-arena
+DMA uploader, so steady-state sprite transfers do not depend on DMA availability.
+
 All commands run from this repository. No sibling game or parent workspace is required.
 
 ## Build variants
@@ -58,6 +71,7 @@ ZGDK assembly.
 bash tests/run_sim.sh
 bash tests/run_stream.sh
 bash tests/run_zips.sh
+bash tests/run_sprites.sh
 ```
 
 ## Profiling and screenshots

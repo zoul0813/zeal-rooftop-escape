@@ -16,6 +16,7 @@ project(rooftop_escape C ASM)
 
 add_executable(${target_name}
     src/controls.c
+    src/sprite_groups.c
     src/main.c
     src/stream.c
     src/stream_shift.c

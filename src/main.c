@@ -14,6 +14,7 @@
 #include "zgdk/tilemap/scroll.h"
 #include <zgdk/sprites.h>
 #include "sky.h"
+#include "sprite_groups.h"
 
 #ifndef START_LEG
 #define START_LEG 0
@@ -62,9 +63,10 @@ static void frame_end(void) {
     world_frame();
     physics_entities_sync(&game_entities);
     hud_draw();
+    rooftop_sprites_prepare();
     gfx_wait_vblank(&vctx);
     world_scroll();
-    sprites_render(&vctx);
+    (void)rooftop_sprites_upload(&vctx);   // retry dirty groups next frame on error
     gfx_wait_end_vblank(&vctx);
     bgm_tick();
     sfx_tick();
@@ -89,7 +91,8 @@ static void init(void) {
     if (err) fatal(err, "tileset");
     tilemap_fill(&vctx, PLAY_LAYER, TILE_EMPTY, 0, 0, 80, 40);
 
-    sprites_register_arena(arena, ARENA_SIZE);
+    err = rooftop_sprites_init(arena);
+    if (err) fatal(err, "sprites");
     err = hud_init();   // first: lower sprite slots draw on top, the HUD and banners stay over the actors
     if (err) fatal(err, "hud");
     storm_init();
