@@ -16,6 +16,7 @@ static game_entity_t hero;
 static uint8_t have_hero;
 
 void *mem_cpy(void *dst, const void *src, size_t n) { return memcpy(dst, src, n); }
+int mem_cmp(const void *p1, const void *p2, size_t n) { return memcmp(p1, p2, n); }
 void *mem_set(void *dst, uint8_t value, size_t n) { return memset(dst, value, n); }
 void sprites_dma_prepare(void) {} /* Registration only; grouped uploads use the SDK range API. */
 game_entity_t *hero_entity(void) { return have_hero ? &hero : NULL; }

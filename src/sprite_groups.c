@@ -1,6 +1,6 @@
 #include "game.h"
 #include "sprite_groups.h"
-#include <string.h>
+#include <core.h>
 
 #define CLOUD_FIRST (HUD_SPRITES + TEXT_LINES * TEXT_LEN)
 #define EDGE_FIRST (CLOUD_FIRST + STORM_ROWS)
@@ -33,8 +33,8 @@ void rooftop_sprites_dirty(uint8_t group) {
 }
 
 void rooftop_sprites_prepare(void) {
-    if (memcmp(sprites + ACTORS_FIRST, last_actors, sizeof(last_actors))) {
-        memcpy(last_actors, sprites + ACTORS_FIRST, sizeof(last_actors));
+    if (mem_cmp(sprites + ACTORS_FIRST, last_actors, sizeof(last_actors))) {
+        mem_cpy(last_actors, sprites + ACTORS_FIRST, sizeof(last_actors));
         rooftop_sprites_dirty(SPR_GROUP_ACTORS);
     }
 }
